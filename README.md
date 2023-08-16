@@ -54,9 +54,9 @@ Returns the floor that an elevator will visit next.
 1
 ```
 
-A number identifying the floor to be visited next. If an error occurs, will
-return a status code other than `200 OK` and the client will receive an error
-object:
+A number identifying the floor to be visited next. If there is no next floor,
+then the result will be null. If an error occurs, will return a status code
+other than `200 OK` and the client will receive an error object:
 
 ```json
 {
