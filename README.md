@@ -1,20 +1,16 @@
 # Elevator API
 
-## Initial thoughts
+## Running The App
 
-- An elevator can only be in two states:
-  - Stopped at a floor
-  - Moving between floors
-- Each elevator has a queue of floors to visit:
-  - The next floor an elevator stops at is the closest floor in the direction
-    it was previously traveling.
-    - There are edge cases to this, such as reaching the top floor and being
-      only able to go down.
-      - What happens if a user gives a floor number that does not exist?
-  - The list of floors an elevator is scheduled to stop at can be in any order.
-    - The best ways to order the floors is either in numerical order or in the
-      order the elevator will visit them.
-  - A user can select one or more floors for an elevator to visit, at any time.
+If you have Docker and Docker Compose installed:
+```
+$ docker-compose up
+```
+
+If you only have Node installed:
+```
+$ export PORT=8080; npm run dev
+```
 
 ## Endpoints
 
@@ -37,3 +33,19 @@ Adds one or more floors to an elevator's queue of floors to visit.
 ### POST `/api/v1/call/{floorId}`
 
 Request (call) an elevator to a particular floor.
+
+## Initial thoughts
+
+- An elevator can only be in two states:
+  - Stopped at a floor
+  - Moving between floors
+- Each elevator has a queue of floors to visit:
+  - The next floor an elevator stops at is the closest floor in the direction
+    it was previously traveling.
+    - There are edge cases to this, such as reaching the top floor and being
+      only able to go down.
+      - What happens if a user gives a floor number that does not exist?
+  - The list of floors an elevator is scheduled to stop at can be in any order.
+    - The best ways to order the floors is either in numerical order or in the
+      order the elevator will visit them.
+  - A user can select one or more floors for an elevator to visit, at any time.

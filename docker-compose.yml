@@ -1,0 +1,9 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+    environment:
+      - "PORT=${DOCKER_CLIENT_PORT:-3000}"
+    ports:
+      - "${DOCKER_HOST_PORT:-8080}:${DOCKER_CLIENT_PORT:-3000}"  
