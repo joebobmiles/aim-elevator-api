@@ -1,4 +1,6 @@
-# Elevator API
+[![wakatime](https://wakatime.com/badge/user/fae05115-5e70-4df1-90c0-1a981cbdf216/project/d82e36c1-a1ca-4b9c-bd9d-38a0ad612d55.svg)](https://wakatime.com/badge/user/fae05115-5e70-4df1-90c0-1a981cbdf216/project/d82e36c1-a1ca-4b9c-bd9d-38a0ad612d55)
+
+# Elevator API 
 
 ## Running The App
 
