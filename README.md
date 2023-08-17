@@ -107,6 +107,25 @@ a status code other than `200 OK` and the client will receive an error object:
 }
 ```
 
+## Rationale
+
+I chose this particular API design due to it being easy to understand what each
+route did when combining it with an HTTP verb. For instance, `GET /ap1/v1/elevator/{elevatorId}/floors`
+reads exactly how you'd describe it: "get elevator X's floors." As for the `PUT`
+and `DELETE` routes, I could have relied on the body of the request to receive
+the floor to add or delete from the elevator's list of floors to visit. However,
+this didn't have the same semantics - `DELETE /ap1/v1/elevator/{elevatorId}/floors`
+would lead you to believe that you were deleting the _entire_ floor list.
+
+Additionally, I originally had planned for the `PUT` and `DELETE` routes to not
+return anything in the response body on a successful operation. But I
+realized that this would result in a doubling of requests. If you added a floor,
+the next thing you naturally want to do is to get the recent list of floors. To
+overcome this, I chose to instead return the newly modified list of floors in
+the response body.
+
+---
+
 ## Thoughts
 
 - An elevator can only be in two states:
