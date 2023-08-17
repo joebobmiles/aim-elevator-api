@@ -72,12 +72,12 @@ Adds the floor to the elevator's queue of floors to visit.
 #### Response Body
 
 ```json
-null
+[ 1, 2, 3, ... ]
 ```
 
-Returns null. A `200 OK` status will indicate if the floor was successfully
-added. If an error occurs, will return a status code other than `200 OK` and the
-client will receive an error object:
+Returns the new list of floors the elevator will visit. A `200 OK` status will
+indicate if the floor was successfully added. If an error occurs, will return a
+status code other than `200 OK` and the client will receive an error object:
 
 ```json
 {
@@ -93,12 +93,12 @@ Removes the floor from the elevator's queue of floors to visit.
 #### Response Body
 
 ```json
-null
+[ 1, 2, 3, ... ]
 ```
 
-Returns null. A `200 OK` status will indicate if the floor was successfully
-removed. If an error occurs, will return a status code other than `200 OK` and
-the client will receive an error object:
+Returns the new list of floors the elevator will visit. A `200 OK` status will
+indicate if the floor was successfully removed. If an error occurs, will return
+a status code other than `200 OK` and the client will receive an error object:
 
 ```json
 {
@@ -107,7 +107,7 @@ the client will receive an error object:
 }
 ```
 
-## Initial thoughts
+## Thoughts
 
 - An elevator can only be in two states:
   - Stopped at a floor
@@ -127,6 +127,8 @@ the client will receive an error object:
           floor is closest to the floor ahead of it in the queue.
   - A user can select one or more floors for an elevator to visit, at any time
     during their ride.
+  - A floor cannot be selected more than once, which means that not only are
+    we looking at a priority queue, but also a set.
 - We don't know how many floors nor how many elevators there are
   - Accept those as environment variables.
     - This might not work well for elevators...
